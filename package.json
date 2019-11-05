@@ -1,0 +1,28 @@
+{
+  "name": "truffle-mint-dai",
+  "version": "1.0.0",
+  "description": "Demo repo to show how you can mint your own forked Mainnet Dai",
+  "scripts": {
+    "ganache": "ganache-cli --fork $ETHEREUM_NODE --unlock 0x89d24A6b4CcB1B6fAA2625fE562bDD9a23260359",
+    "build": "truffle build",
+    "migrate": "truffle migrate",
+    "test": "truffle test",
+    "bridge": "ethereum-bridge -H localhost:8545 -a 7",
+    "verify": "truffle run verify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryanio/ipfs-pin-market-contracts.git"
+  },
+  "author": "Ryan Ghods <ryan@ryanio.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ryanio/ipfs-pin-market-contracts/issues"
+  },
+  "homepage": "https://ipfspin.market",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "openzeppelin-test-helpers": "^0.4.3",
+    "truffle": "^5.0.35"
+  }
+}
