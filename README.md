@@ -26,6 +26,8 @@ To set up your dev environment, run `yarn`.
 
 #### Tests
 
-After `ganache-cli` is up and running, simply run `yarn test`.
+After your forked Mainnet with `ganache-cli` is up and running, simply run `yarn test`.
 
 You should expect output like below:
+
+![Sample Test Output](https://i.imgur.com/dZ9JJuf.png)
