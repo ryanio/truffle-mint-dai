@@ -13,14 +13,14 @@ const daiAddress = '0x6b175474e89094c44da98b954eedeac495271d0f';
 const daiContract = new web3.eth.Contract(daiABI, daiAddress);
 
 contract("Truffle Mint Dai", async accounts => {
-  it("should send ether to the Dai contract", async () => {
+  it("should send ether to the Dai address", async () => {
     // Send 0.1 eth to userAddress to have gas to send an ERC20 tx.
     // Uses ForceSend contract, otherwise just sending
     // a normal tx will revert.
-    const amount = ether("0.1");
-    await web3.eth.sendTransaction({from: accounts[0], to: '0xdfbaf3e4c7496dad574a1b842bc85b402bdc298d', value: amount})
+    const amount = ether("0.01");
+    await web3.eth.sendTransaction({from: accounts[0], to: userAddress, value: amount})
     const ethBalance = await balance.current(userAddress);
-    expect(new BN(ethBalance)).to.be.bignumber.least(new BN(ether("0.1")));
+    expect(new BN(ethBalance)).to.be.bignumber.least(new BN(ether("0.01")));
   });
 
   it("should mint Dai for our first 5 generated accounts", async () => {
