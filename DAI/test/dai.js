@@ -29,9 +29,9 @@ contract("Truffle Mint Dai", async accounts => {
       // daiAddress is passed to ganache-cli with flag `--unlock`
       // so we can use the `transfer` method
       await daiContract.methods
-        .transfer(accounts[0], '100000000000000000000')
+        .transfer(account, '100000000000000000000')
         .send({from: userAddress, gasLimit: 800000});
-      const daiBalance = await daiContract.methods.balanceOf(accounts[0]).call();
+      const daiBalance = await daiContract.methods.balanceOf(account).call();
       expect(new BN(daiBalance)).to.be.bignumber.least(ether("100"));
     });
   });
