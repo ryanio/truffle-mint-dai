@@ -3,11 +3,10 @@
   "version": "1.0.0",
   "description": "Demo repo to show how you can mint your own forked Mainnet Dai",
   "scripts": {
-    "ganache": "ganache-cli --fork $ETHEREUM_NODE --unlock 0x89d24A6b4CcB1B6fAA2625fE562bDD9a23260359",
+    "ganache": "ganache-cli --fork $ETHEREUM_NODE --unlock 0x89d24A6b4CcB1B6fAA2625fE562bDD9a23260359 --unlock 0xdfbaf3e4c7496dad574a1b842bc85b402bdc298d",
     "build": "truffle build",
     "migrate": "truffle migrate",
     "test": "truffle test",
-    "bridge": "ethereum-bridge -H localhost:8545 -a 7",
     "verify": "truffle run verify"
   },
   "repository": {

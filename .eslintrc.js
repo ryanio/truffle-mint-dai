@@ -1,5 +1,5 @@
 module.exports = {
   rules: {
-    "security/no-block-members": "off"
+    'security/no-block-members': 'off'
   }
 };

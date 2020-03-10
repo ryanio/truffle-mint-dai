@@ -6,7 +6,7 @@ This repo contains a test suite that shows you how you can mint your own Dai on 
 
 See the article for more. Please run `ganache-cli` with the `fork` and `unlock` args as so:
 
-`ganache-cli --fork NODE_URL --unlock 0x89d24A6b4CcB1B6fAA2625fE562bDD9a23260359`
+`ganache-cli --fork NODE_URL --unlock 0x89d24A6b4CcB1B6fAA2625fE562bDD9a23260359 --unlock 0xdfbaf3e4c7496dad574a1b842bc85b402bdc298d`
 
 or as an alias, edit your `/.profile` and add at the bottom:
 
