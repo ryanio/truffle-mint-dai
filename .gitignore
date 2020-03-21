@@ -3,3 +3,4 @@ build
 .vscode
 bridge.log
 .node-xmlhttp*
+package-lock.json
