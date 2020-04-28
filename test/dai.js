@@ -6,7 +6,7 @@ const { asyncForEach } = require('./utils');
 const daiABI = require('./abi/dai');
 
 // userAddress must be unlocked using --unlock ADDRESS
-const userAddress = '0xdfbaf3e4c7496dad574a1b842bc85b402bdc298d';
+const userAddress = '0x9eb7f2591ed42dee9315b6e2aaf21ba85ea69f8c';
 const daiAddress = '0x6b175474e89094c44da98b954eedeac495271d0f';
 const daiContract = new web3.eth.Contract(daiABI, daiAddress);
 
