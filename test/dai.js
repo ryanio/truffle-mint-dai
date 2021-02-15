@@ -1,6 +1,7 @@
 const { expect } = require('chai');
 const { BN, ether, balance } = require('@openzeppelin/test-helpers');
 const daiABI = require('./abi/dai');
+const ForceSend = artifacts.require('ForceSend');
 
 // USER_ADDRESS and DAI_ADDRESS must be
 // unlocked in ganache-cli using --unlock
@@ -9,15 +10,14 @@ const DAI_ADDRESS = '0x6b175474e89094c44da98b954eedeac495271d0f';
 const daiContract = new web3.eth.Contract(daiABI, DAI_ADDRESS);
 
 contract('Truffle Mint DAI', async (accounts) => {
-  it('should send ether to the DAI address', async () => {
-    // Send 0.1 eth to USER_ADDRESS to have gas to send an ERC20 tx.
-    await web3.eth.sendTransaction({
-      from: accounts[0],
-      to: USER_ADDRESS,
-      value: ether('0.1'),
-    });
+  it('should send ether to the user address', async () => {
+    // Send 1 eth to USER_ADDRESS to have gas to send ERC20 txs.
+    // Uses ForceSend contract, otherwise sending a normal tx to
+    // a contract address that doesn't have a default payable function may revert.
+    const forceSend = await ForceSend.new();
+    await forceSend.go(USER_ADDRESS, { value: ether('1') });
     const ethBalance = await balance.current(USER_ADDRESS);
-    expect(new BN(ethBalance)).to.be.bignumber.least(new BN(ether('0.1')));
+    expect(new BN(ethBalance)).to.be.bignumber.least(new BN(ether('1')));
   });
 
   it('should send DAI to first 5 generated accounts', async () => {

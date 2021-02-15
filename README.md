@@ -22,4 +22,4 @@ After your forked mainnet with `ganache-cli` is up and running, in a separate te
 
 You should expect output like below:
 
-![Sample Test Output](https://i.imgur.com/mR2vhMT.png)
+![Sample Test Output](https://i.imgur.com/gsgKONH.png)
