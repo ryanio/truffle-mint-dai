@@ -20,21 +20,21 @@ contract('Truffle Mint DAI', async (accounts) => {
     expect(new BN(ethBalance)).to.be.bignumber.least(new BN(ether('1')));
   });
 
-  it('should send DAI to first 5 generated accounts', async () => {
+  it('should send DAI to first generated account', async () => {
     // Verify dai balance
     const daiBalance = await daiContract.methods.balanceOf(USER_ADDRESS).call();
-    expect(new BN(daiBalance)).to.be.bignumber.least(ether('500'));
+    expect(new BN(daiBalance)).to.be.bignumber.least(ether('1'));
 
-    // Send 100 DAI to the first 5 accounts
-    for (const account of accounts.slice(0, 5)) {
+    // Send 1 DAI to the first account
+    for (const account of accounts.slice(0, 1)) {
       // DAI_ADDRESS and USER_ADDRESS are passed to
       // ganache-cli with flag `--unlock`
       // so we can use the `transfer` method
       await daiContract.methods
-        .transfer(account, ether('100').toString())
+        .transfer(account, ether('1').toString())
         .send({ from: USER_ADDRESS, gasLimit: 800000 });
       const daiBalance = await daiContract.methods.balanceOf(account).call();
-      expect(new BN(daiBalance)).to.be.bignumber.least(ether('100'));
+      expect(new BN(daiBalance)).to.be.bignumber.least(ether('1'));
     }
   });
 });

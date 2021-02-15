@@ -10,6 +10,8 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+      ETHEREUM_NODE: ${{ secrets.ETHEREUM_NODE }}
     strategy:
       matrix:
         node-version: [12.x]
@@ -23,6 +25,5 @@ jobs:
       - uses: actions/checkout@v2
 
       - run: yarn
+      - run: echo "USER_ADDRESS=$(yarn --silent getAddress)" >> $GITHUB_ENV
       - run: yarn ganache & yarn test
-        env:
-          ETHEREUM_NODE: ${{ secrets.ETHEREUM_NODE }}

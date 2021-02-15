@@ -22,13 +22,11 @@ const run = async () => {
     topics,
   });
 
-  const maxLog = logs.reduce((max, log) =>
-    web3.utils.toBN(max.data).gt(web3.utils.toBN(log.data)) ? max : log
+  const max = logs.reduce((a, b) =>
+    web3.utils.toBN(a.data).gt(web3.utils.toBN(b.data)) ? a : b
   );
-
-  const dst = maxLog.topics[2].slice(-40);
-
-  console.log(`0x${dst}`);
+  const destination = max.topics[2].slice(-40);
+  console.log(`0x${destination}`);
 };
 
 run();

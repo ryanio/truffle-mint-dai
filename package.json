@@ -3,10 +3,10 @@
   "version": "1.0.1",
   "description": "Demo repo to show how to acquire your own forked mainnet DAI",
   "scripts": {
-    "ganache": "ganache-cli --fork $ETHEREUM_NODE --port 8546 --unlock 0x6b175474e89094c44da98b954eedeac495271d0f --unlock $(npm run getAddress --silent)",
+    "ganache": "ganache-cli --fork $ETHEREUM_NODE --port 8546 --unlock 0x6b175474e89094c44da98b954eedeac495271d0f --unlock $USER_ADDRESS",
     "build": "truffle build",
     "migrate": "truffle migrate",
-    "test": "USER_ADDRESS=$(npm run getAddress --silent) truffle test",
+    "test": "truffle test",
     "getAddress": "node getAddress.js"
   },
   "repository": {
